@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #e6f5ff;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar style="-fx-background-color: #007acc;">
+              <menus>
+                <Menu fx:id="fileMenu" mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="exitItem" mnemonicParsing="false" onAction="#closeProgram" text="Close" />
+                  </items>
+                </Menu>
+                <Menu fx:id="aboutItem" mnemonicParsing="false" onAction="#showInformationsAboutAuthor">
+                     <graphic>
+                        <Label onMouseClicked="#showInformationsAboutAuthor" text="About" />
+                     </graphic></Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+   </top>
+   <bottom>
+      <Button fx:id="createButton" mnemonicParsing="false" onAction="#createNewTask" prefHeight="44.0" prefWidth="197.0" style="-fx-background-color: #007acc;" text="Add new task" textAlignment="CENTER" textFill="#4d4242" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Leelawadee UI Semilight" size="18.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+   <left>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="20.0" top="20.0" />
+         </BorderPane.margin>
+         <children>
+            <Label maxWidth="200.0" text="To do" textAlignment="CENTER">
+               <padding>
+                  <Insets left="70.0" />
+               </padding>
+               <font>
+                  <Font name="Leelawadee UI Semilight" size="24.0" />
+               </font></Label>
+            <ListView fx:id="toDoListView" layoutY="34.0" maxHeight="329.0" opacity="0.8" prefHeight="329.0" prefWidth="200.0" style="-fx-border-color: #007acc;">
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#editItemFromToDoList" text="Edit" />
+                        <MenuItem mnemonicParsing="false" onAction="#deleteItemFromToDoList" text="Delete" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu></ListView>
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <Pane prefHeight="382.0" prefWidth="110.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="46.0" text="In progress">
+               <font>
+                  <Font name="Leelawadee UI Semilight" size="24.0" />
+               </font></Label>
+            <ListView fx:id="inProgressListView" layoutX="7.0" layoutY="34.0" maxHeight="329.0" opacity="0.8" prefHeight="329.0" prefWidth="200.0" style="-fx-border-color: #007acc;">
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#editItemFromInProgressList" text="Edit" />
+                        <MenuItem mnemonicParsing="false" onAction="#deleteItemFromInProgressList" text="Delete" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu></ListView>
+         </children>
+         <BorderPane.margin>
+            <Insets left="20.0" top="20.0" />
+         </BorderPane.margin>
+      </Pane>
+   </center>
+   <right>
+      <Pane prefHeight="382.0" prefWidth="227.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets right="20.0" top="20.0" />
+         </BorderPane.margin>
+         <children>
+            <Label layoutX="89.0" text="Done">
+               <font>
+                  <Font name="Leelawadee UI Semilight" size="24.0" />
+               </font>
+            </Label>
+            <ListView fx:id="doneListView" layoutX="14.0" layoutY="34.0" maxHeight="329.0" opacity="0.8" prefHeight="329.0" prefWidth="200.0" style="-fx-border-color: #007acc;">
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#editItemFromDoneList" text="Edit" />
+                        <MenuItem mnemonicParsing="false" onAction="#deleteItemFromDoneList" text="Delete" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu></ListView>
+         </children>
+      </Pane>
+   </right>
+</BorderPane>
